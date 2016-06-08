@@ -41,6 +41,7 @@ name='groups_edit'),
 'students.views.groups.groups_delete',
 name='groups_delete'),
    
+    url(r'^exams/$', 'students.views.exams.exams', name='exams'),
     url(r'^admin/', include(admin.site.urls))
     )
     
