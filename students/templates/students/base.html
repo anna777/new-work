@@ -1,4 +1,4 @@
-{% load static from staticfiles %}
+{% load static %}
 
 
 <!DOCTYPE html>
@@ -9,16 +9,19 @@
      <title> Сервіс обліку студентів - {% block meta_title %}{% endblock meta_title %}</title>
      <meta name="description"
            value="Система облуку студентів навчального закладу"/>
-           
+
      <meta name="viewport"
            content="width=device-width, initial-scale=1">
    <link rel="stylesheet"
          href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
  <link rel="stylesheet"
 href="{{ PORTAL_URL}}"{% static 'css/main.css' %}">
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+
 {% block extra_css %}{% endblock extra_css %}
    </head>
-   
+
    <body>
    <!-- Start Container -->
 <div class="container">
@@ -62,9 +65,9 @@ href="{{ PORTAL_URL}}"{% static 'css/main.css' %}">
 {% endblock %}
 <h2>{% block title %}{% endblock title %}</h2>
 {% block content %}{% endblock content %}
-   
 
- 
+
+
     </div>
 </div>
 </div>
@@ -78,13 +81,13 @@ href="{{ PORTAL_URL}}"{% static 'css/main.css' %}">
 <!-- End Footer -->
 </div>
 <!-- End Container -->
-     
+
      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js">
      </script>
      <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js">
      </script>
+     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
      {% block extra_js %}{% endblock extra_js %}
    </body>
-   
-</html>
 
+</html>
