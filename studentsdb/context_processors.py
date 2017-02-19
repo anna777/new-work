@@ -1,4 +1,8 @@
-from .settings import PORTAL_URL
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.functional import SimpleLazyObject
+
 
 def students_proc(request):
-    return {'PORTAL_URL': PORTAL_URL}
+    return {
+        'site': SimpleLazyObject(lambda: get_current_site(request)),
+    }

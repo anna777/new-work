@@ -1,5 +1,5 @@
 {% extends "students/base.html" %}
-{% load static %}
+{% load static from staticfiles %}
 
 {% block meta_title %}Студенти{% endblock meta_title %}
 {% block title %}База Студентів{% endblock title %}
@@ -8,54 +8,10 @@
 {%with order_by=request.GET.order_by reverse=request.GET.reverse%}
     <!-- Add Student Button -->
 <a class="btn btn-primary" href="{% url "students_add" %}">Додати Студента</a>
-<script>
 
-$(document).ready(function () {
-  console.log("fdfd")
-    $('.loadMore1 tr').hide();
-    size_li = $(".loadMore1 tr").size();
-    x=1;
-    $('.loadMore1 tr('+x+')').show();
-    $('#loadMore').click(function () {
-        x= (x+5 <= size_li) ? x+5 : size_li;
-        $('.loadMore1 tr('+x+')').show();
-         $('#showLess').show();
-        if(x == size_li){
-            $('#loadMore').hide();
-        }
-    });
-    $('#showLess').click(function () {
-        x=(x-5<0) ? 3 : x-5;
-        $('.loadMore1 tr').not('+x+').hide();
-        $('#loadMore').show();
-         $('#showLess').show();
-        if(x == 3){
-            $('#showLess').hide();
-        }
-    });
-});
-</script>
-<ul id="myList"><li>One</li>
-<li>Two</li>
-<li>Three</li>
-<li>Four</li>
-<li>Five</li>
-<li>Six</li>
-<li>Seven</li>
-<li>Eight</li>
-<li>Nine</li>
-<li>Ten</li>
-<li>Eleven</li>
-<li>Twelve</li>
-<li>Thirteen</li>
-<li>Fourteen</li>
-<li>Fifteen</li></ul>
-<div id="loadMore">Load more</div
-<div id="showLess">Show Less</div>
+<div ><!-- Start Students Listing -->
 
-<div class='load_more'><!-- Start Students Listing -->
-
-   <table id='loadMore1'>
+   <table>
    <table class="table table-hover table-striped">
      <thead>
        <tr>
@@ -84,7 +40,7 @@ $(document).ready(function () {
      <tbody>
  {%endwith%}
       {% for student in students %}
-      <tr>
+      <tr id='mylist1'>
         <td>{{ forloop.counter}}</td>
       <td> {% if student.photo %}
 <img class="img-circle" src="{{ student.photo.url }}" heig
@@ -150,6 +106,8 @@ y }}&amp;reverse={{ reverse }}">{{ p }}</a>
     </div>
 </div>
 </div>
+<div id="loadMore">Load more</div>
+<div id="showLess">Show less</div>
 {% endblock content %}
 
 
