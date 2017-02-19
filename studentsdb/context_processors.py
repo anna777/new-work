@@ -3,6 +3,8 @@ from django.utils.functional import SimpleLazyObject
 
 
 def students_proc(request):
+    PORTAL_URL =  SimpleLazyObject(lambda: get_current_site(request))
+    protocol = 'https' if request.is_secure() else 'http'
+
     return {
-        'site': SimpleLazyObject(lambda: get_current_site(request)),
-    }
+        'PORTAL_URL': "{0}://{1}".format(protocol, PORTAL_URL)}
