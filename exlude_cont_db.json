@@ -1,0 +1,451 @@
+[
+{
+    "fields": {
+        "codename": "add_logentry",
+        "name": "Can add log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 1
+},
+{
+    "fields": {
+        "codename": "change_logentry",
+        "name": "Can change log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 2
+},
+{
+    "fields": {
+        "codename": "delete_logentry",
+        "name": "Can delete log entry",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 3
+},
+{
+    "fields": {
+        "codename": "add_permission",
+        "name": "Can add permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 4
+},
+{
+    "fields": {
+        "codename": "change_permission",
+        "name": "Can change permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 5
+},
+{
+    "fields": {
+        "codename": "delete_permission",
+        "name": "Can delete permission",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 6
+},
+{
+    "fields": {
+        "codename": "add_group",
+        "name": "Can add group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 7
+},
+{
+    "fields": {
+        "codename": "change_group",
+        "name": "Can change group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 8
+},
+{
+    "fields": {
+        "codename": "delete_group",
+        "name": "Can delete group",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 9
+},
+{
+    "fields": {
+        "codename": "add_user",
+        "name": "Can add user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 10
+},
+{
+    "fields": {
+        "codename": "change_user",
+        "name": "Can change user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 11
+},
+{
+    "fields": {
+        "codename": "delete_user",
+        "name": "Can delete user",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 12
+},
+{
+    "fields": {
+        "codename": "add_contenttype",
+        "name": "Can add content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 13
+},
+{
+    "fields": {
+        "codename": "change_contenttype",
+        "name": "Can change content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 14
+},
+{
+    "fields": {
+        "codename": "delete_contenttype",
+        "name": "Can delete content type",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 15
+},
+{
+    "fields": {
+        "codename": "add_session",
+        "name": "Can add session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 16
+},
+{
+    "fields": {
+        "codename": "change_session",
+        "name": "Can change session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 17
+},
+{
+    "fields": {
+        "codename": "delete_session",
+        "name": "Can delete session",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 18
+},
+{
+    "fields": {
+        "codename": "add_student",
+        "name": "Can add \u0421\u0442\u0443\u0434\u0435\u043d\u0442",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 19
+},
+{
+    "fields": {
+        "codename": "change_student",
+        "name": "Can change \u0421\u0442\u0443\u0434\u0435\u043d\u0442",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 20
+},
+{
+    "fields": {
+        "codename": "delete_student",
+        "name": "Can delete \u0421\u0442\u0443\u0434\u0435\u043d\u0442",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 21
+},
+{
+    "fields": {
+        "codename": "add_group",
+        "name": "Can add \u0413\u0440\u0443\u043f\u0430",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 22
+},
+{
+    "fields": {
+        "codename": "change_group",
+        "name": "Can change \u0413\u0440\u0443\u043f\u0430",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 23
+},
+{
+    "fields": {
+        "codename": "delete_group",
+        "name": "Can delete \u0413\u0440\u0443\u043f\u0430",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 24
+},
+{
+    "fields": {
+        "codename": "add_exam",
+        "name": "Can add \u0406\u0441\u043f\u0438\u0442",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 25
+},
+{
+    "fields": {
+        "codename": "change_exam",
+        "name": "Can change \u0406\u0441\u043f\u0438\u0442",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 26
+},
+{
+    "fields": {
+        "codename": "delete_exam",
+        "name": "Can delete \u0406\u0441\u043f\u0438\u0442",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 27
+},
+{
+    "fields": {
+        "name": "NT",
+        "permissions": []
+    },
+    "model": "auth.group",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "BV",
+        "permissions": []
+    },
+    "model": "auth.group",
+    "pk": 2
+},
+{
+    "fields": {
+        "username": "anna",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2017-02-19T19:26:14.072Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$12000$31jClCDXOXCc$Jf6vj7QVg2PHr+4XPjSGfPvpGH31WkePCPEFh4ri0nI=",
+        "email": "annapasichnyk77@gmail.com",
+        "date_joined": "2017-02-15T14:59:36.476Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "expire_date": "2017-03-01T14:59:52.591Z",
+        "session_data": "ZDIwMTZkZjY1Y2Y0NTFmM2M3ZDlmOTBmYzg1MzhkYzU0NWIzMjdjODp7Il9hdXRoX3VzZXJfaGFzaCI6IjQ0ZTlkMmUxNzU1NmI0ZjEyOTc1YjlmNTdkZjEwZjZhNWNlOTQwMGEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "584pvgibhty6314anv27d0y02p3osm8u"
+},
+{
+    "fields": {
+        "expire_date": "2017-03-05T19:26:14.162Z",
+        "session_data": "ZDIwMTZkZjY1Y2Y0NTFmM2M3ZDlmOTBmYzg1MzhkYzU0NWIzMjdjODp7Il9hdXRoX3VzZXJfaGFzaCI6IjQ0ZTlkMmUxNzU1NmI0ZjEyOTc1YjlmNTdkZjEwZjZhNWNlOTQwMGEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "vu7922sz1gmtk2g99yxhqmzs3ud0kskm"
+},
+{
+    "fields": {
+        "first_name": "Anna",
+        "last_name": "Prystayko",
+        "middle_name": "",
+        "photo": "./images.jpg",
+        "notes": "",
+        "student_group": 2,
+        "birthday": "1991-02-08",
+        "ticket": "25"
+    },
+    "model": "students.student",
+    "pk": 1
+},
+{
+    "fields": {
+        "first_name": "Taras",
+        "last_name": "Prystayko",
+        "middle_name": "",
+        "photo": "",
+        "notes": "",
+        "student_group": 2,
+        "birthday": "1991-02-08",
+        "ticket": "4121"
+    },
+    "model": "students.student",
+    "pk": 2
+},
+{
+    "fields": {
+        "first_name": "Anna",
+        "last_name": "Pasichnyk",
+        "middle_name": "",
+        "photo": "",
+        "notes": "",
+        "student_group": 2,
+        "birthday": "1991-02-08",
+        "ticket": "56"
+    },
+    "model": "students.student",
+    "pk": 3
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "ndb"
+    },
+    "model": "students.group",
+    "pk": 1
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "NB"
+    },
+    "model": "students.group",
+    "pk": 2
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "NH"
+    },
+    "model": "students.group",
+    "pk": 3
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "KL"
+    },
+    "model": "students.group",
+    "pk": 4
+},
+{
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2017-02-15T19:07:08.107Z",
+        "object_repr": "NT",
+        "object_id": "1",
+        "change_message": "",
+        "user": 1,
+        "content_type": 3
+    },
+    "model": "admin.logentry",
+    "pk": 1
+},
+{
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2017-02-15T19:07:13.347Z",
+        "object_repr": "BV",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 3
+    },
+    "model": "admin.logentry",
+    "pk": 2
+},
+{
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2017-02-15T19:17:23.724Z",
+        "object_repr": "ndb",
+        "object_id": "1",
+        "change_message": "",
+        "user": 1,
+        "content_type": 8
+    },
+    "model": "admin.logentry",
+    "pk": 3
+},
+{
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2017-02-15T19:17:36.643Z",
+        "object_repr": "NB",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 8
+    },
+    "model": "admin.logentry",
+    "pk": 4
+},
+{
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2017-02-19T19:26:29.450Z",
+        "object_repr": "NH",
+        "object_id": "3",
+        "change_message": "",
+        "user": 1,
+        "content_type": 8
+    },
+    "model": "admin.logentry",
+    "pk": 5
+},
+{
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2017-02-19T19:26:34.956Z",
+        "object_repr": "KL",
+        "object_id": "4",
+        "change_message": "",
+        "user": 1,
+        "content_type": 8
+    },
+    "model": "admin.logentry",
+    "pk": 6
+}
+]

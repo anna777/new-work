@@ -14,7 +14,15 @@ from django.conf import global_settings
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# email settings
+# please, set here you smtp server details and your admin email
+ADMIN_EMAIL ='annapasichnyk77@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'annapasichnyk77@gmail'
+HOST_PASSWORD = '**********'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -28,19 +36,20 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Application definition
 
 INSTALLED_APPS = (
+    'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'students',
-    'studentsdb'
+    'studentsdb',
+    'crispy_forms'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,16 +75,19 @@ WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR,'..', 'db.sqlite3'),
+
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST':'localhost',
+        'USER': 'students_user',
+        'PASSWORD':'inmymemory123',
+        'NAME': 'students_db'
     }
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk'
 
 TIME_ZONE = 'UTC'
 

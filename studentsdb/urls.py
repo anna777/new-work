@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from .settings import MEDIA_ROOT, DEBUG
+
+from students.models.students import Student
+
 urlpatterns = patterns ('',
     # Students urls
     url(r'^$', 'students.views.students.students_list', name='home'),
+    url(url(r'^student_list/$', StudentList.as_view()),
     url(r'^students/add/$', 'students.views.students.students_add',
 name= 'students_add'),
     url(r'^students/(?P<sid>\d+)/edit/$',
@@ -40,13 +44,16 @@ name='groups_edit'),
    url(r'^groups/(?P<gid>\d+)/delete/$',
 'students.views.groups.groups_delete',
 name='groups_delete'),
-   
+
+   url(r'^contact-admin/$', 'students.views.contact_admin.contact_admin',
+name='contact_admin'),
+
     url(r'^exams/$', 'students.views.exams.exams', name='exams'),
     url(r'^admin/', include(admin.site.urls))
     )
-    
+
 
 if DEBUG:
 # serve files from media folder
     urlpatterns += patterns('',
-        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}))   
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}))

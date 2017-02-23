@@ -22,10 +22,10 @@ class Exam(models.Model):
       verbose_name=u"Імя викладача",
       blank=True,
       null=True)
-    group = models.OneToOneField('Group',
+    group = models.ForeignKey('Group',
       verbose_name=u"Група",
       blank=True,
-      null=True,
-      on_delete=models.SET_NULL)
+      null=True)
+
     def __unicode__(self):
       return u"%s" % (self.title)

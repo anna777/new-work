@@ -1,0 +1,131 @@
+[
+{
+    "fields": {
+        "name": "NT",
+        "permissions": []
+    },
+    "model": "auth.group",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "BV",
+        "permissions": []
+    },
+    "model": "auth.group",
+    "pk": 2
+},
+{
+    "fields": {
+        "username": "anna",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2017-02-19T19:26:14.072Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$12000$31jClCDXOXCc$Jf6vj7QVg2PHr+4XPjSGfPvpGH31WkePCPEFh4ri0nI=",
+        "email": "annapasichnyk77@gmail.com",
+        "date_joined": "2017-02-15T14:59:36.476Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "expire_date": "2017-03-01T14:59:52.591Z",
+        "session_data": "ZDIwMTZkZjY1Y2Y0NTFmM2M3ZDlmOTBmYzg1MzhkYzU0NWIzMjdjODp7Il9hdXRoX3VzZXJfaGFzaCI6IjQ0ZTlkMmUxNzU1NmI0ZjEyOTc1YjlmNTdkZjEwZjZhNWNlOTQwMGEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "584pvgibhty6314anv27d0y02p3osm8u"
+},
+{
+    "fields": {
+        "expire_date": "2017-03-05T19:26:14.162Z",
+        "session_data": "ZDIwMTZkZjY1Y2Y0NTFmM2M3ZDlmOTBmYzg1MzhkYzU0NWIzMjdjODp7Il9hdXRoX3VzZXJfaGFzaCI6IjQ0ZTlkMmUxNzU1NmI0ZjEyOTc1YjlmNTdkZjEwZjZhNWNlOTQwMGEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "vu7922sz1gmtk2g99yxhqmzs3ud0kskm"
+},
+{
+    "fields": {
+        "first_name": "Anna",
+        "last_name": "Prystayko",
+        "middle_name": "",
+        "photo": "./images.jpg",
+        "notes": "",
+        "student_group": 2,
+        "birthday": "1991-02-08",
+        "ticket": "25"
+    },
+    "model": "students.student",
+    "pk": 1
+},
+{
+    "fields": {
+        "first_name": "Taras",
+        "last_name": "Prystayko",
+        "middle_name": "",
+        "photo": "",
+        "notes": "",
+        "student_group": 2,
+        "birthday": "1991-02-08",
+        "ticket": "4121"
+    },
+    "model": "students.student",
+    "pk": 2
+},
+{
+    "fields": {
+        "first_name": "Anna",
+        "last_name": "Pasichnyk",
+        "middle_name": "",
+        "photo": "",
+        "notes": "",
+        "student_group": 2,
+        "birthday": "1991-02-08",
+        "ticket": "56"
+    },
+    "model": "students.student",
+    "pk": 3
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "ndb"
+    },
+    "model": "students.group",
+    "pk": 1
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "NB"
+    },
+    "model": "students.group",
+    "pk": 2
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "NH"
+    },
+    "model": "students.group",
+    "pk": 3
+},
+{
+    "fields": {
+        "notes": "",
+        "leader": null,
+        "title": "KL"
+    },
+    "model": "students.group",
+    "pk": 4
+}
+
+]

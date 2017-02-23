@@ -21,6 +21,7 @@ class Group(models.Model):
     notes = models.TextField(
       blank=True,
       verbose_name=u"Додаткові нотатки")
+    
     def __unicode__(self):
       if self.leader:
         return u"%s (%s %s)" % (self.title, self.leader.first_name,self.leader.last_name)

@@ -54,7 +54,9 @@ href="{{ PORTAL_URL}}{% static "css/main 2.css" %}">
      <li role="presentation" {% if request.path == '/'%}class="active"{% endif %}><a href="{% url "home" %}">Студенти</a></li>
      <li role="presentation"{% if '/journal' in request.path %} class="active"{% endif %}><a href="{% url "journal" %}">Відвідування</a></li>
      <li role="presentation"{% if '/groups' in request.path%} class="active"{% endif %}><a href="{% url "groups" %}">Групи</a></li>
-     <li role="presentation"><a href="{% url "exams" %}">Іспит</a></li>
+     <li role="presentation" {% if '/exams' in request.path%} class="active"{% endif %}><a href="{% url "exams" %}">Іспит</a></li>
+     <li role="presentation" {% if '/contact-admin' in request.path%} class="active"{% endif %}><a href="{% url "contact_admin" %}">Контакт</a></li>
+
    </ul>
 </div>
 </div>
