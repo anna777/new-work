@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
-
+from django.views.generic import UpdateView, DeleteView
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
+from django.core.urlresolvers import reverse
+
 
 from ..models import Group
 from ..util import paginate
+
+
 # Views for Groups
 def groups_list(request):
     groups = Group.objects.all()
@@ -23,7 +27,21 @@ def groups_list(request):
     return render(request, 'students/groups_list.html', context)
 def groups_add(request):
     return HttpResponse('<h1>Group Add Form</h1>')
-def groups_edit(request, gid):
-    return HttpResponse('<h1>Edit Group %s</h1>' % gid)
-def groups_delete(request, gid):
-    return HttpResponse('<h1>Delete Group %s</h1>' % gid)
+
+class GroupUpdateView(UpdateView):
+    model = Group
+    template_name = "students/groups_edit.html"
+    def get_success_url(self):
+        return u'%s?status_message=Групу успішно збережено!' % reverse('groups')
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            return HttpResponseRedirect(u'%s?status_message=Редагування групи відмінено!'% reverse('groups'))
+        else:
+            return super(GroupUpdateView, self).post(request, *args, **kwargs)
+
+
+class GroupDeleteView(DeleteView):
+    model = Group
+    template_name = 'students/groups_delete.html'
+    def get_success_url(self):
+        return u'%s?status_message=Групу успішно видалено!'% reverse('groups')

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from django.views.generic import UpdateView, DeleteView
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -8,6 +8,7 @@ from ..models import Student, Group
 from datetime import datetime
 from django.contrib import messages
 from django.utils.translation import ugettext as _
+
 
 # Create your views here.
 def students_list(request):
@@ -18,8 +19,8 @@ def students_list(request):
       students = students.order_by(order_by)
       if request.GET.get('reverse', '') == '1':
         students = students.reverse()
-    
-    
+
+
     # paginate students
     paginator = Paginator(students, 3)
     page = request.GET.get('page')
@@ -27,15 +28,15 @@ def students_list(request):
       students = paginator.page(page)
     except PageNotAnInteger:
     # If page is not an integer, deliver first page.
-      students = paginator.page(1) 
+      students = paginator.page(1)
     except EmptyPage:
 # If page is out of range (e.g. 9999), deliver
 # last page of results.
       students = paginator.page(paginator.num_pages)
-    
+
     return render(request, 'students/students_list.html',
 {'students': students})
-       
+
 def students_add(request):
 # was form posted?
   if request.method == "POST":
@@ -95,16 +96,30 @@ def students_add(request):
             return render(request, 'students/students_add.html',
         {'groups': Group.objects.all().order_by('title'),
         'errors': errors})
-      
+
     elif request.POST.get('cancel_button') is not None:
     # redirect to home page on cancel button
         return HttpResponseRedirect(u'%s?status_message=Додавання студента скасовано!' %
-reverse('home'))     
+reverse('home'))
   else:
 # initial form render
     return render(request, 'students/students_add.html',
         {'groups': Group.objects.all().order_by('title')})
-def students_edit(request, sid):
-    return HttpResponse('<h1>Edit Student %s</h1>' % sid)
-def students_delete(request, sid):
-    return HttpResponse('<h1>Delete Student %s</h1>' % sid)
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    template_name = "students/students_edit.html"
+    def get_success_url(self):
+        return u'%s?status_message=Студента успішно збережено!' % reverse('home')
+    def post(self, request, *args, **kwargs):
+        if request.POST.get('cancel_button'):
+            return HttpResponseRedirect(u'%s?status_message=Редагування студента відмінено!'% reverse('home'))
+        else:
+            return super(StudentUpdateView, self).post(request, *args, **kwargs)
+
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    template_name = 'students/students_delete.html'
+    def get_success_url(self):
+        return u'%s?status_message=Студента успішно видалено!'% reverse('home')
