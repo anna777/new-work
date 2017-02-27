@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-
+from .students import Student
 
 
 class Group(models.Model):
@@ -22,6 +22,7 @@ class Group(models.Model):
       blank=True,
       verbose_name=u"Додаткові нотатки")
     
+
     def __unicode__(self):
       if self.leader:
         return u"%s (%s %s)" % (self.title, self.leader.first_name,self.leader.last_name)

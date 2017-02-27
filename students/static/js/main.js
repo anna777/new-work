@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+    $("#load tr").hide();
     size_li = $("#load tr").size();
     x=1;
     $('#load tr:lt('+x+')').show();
