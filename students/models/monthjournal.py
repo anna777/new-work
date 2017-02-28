@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -6,8 +7,8 @@ class MonthJournal(models.Model):
     """Student Monthly Journal"""
 
     class Meta:
-        verbose_name = _(u"Monthly Journal")
-        verbose_name_plural = _(u"Monthly Journals")
+        verbose_name = _(u"Місячні Журнали")
+        verbose_name_plural = _(u"Місячні Журнали")
 
     student = models.ForeignKey('Student',
         verbose_name=_(u"Student"),

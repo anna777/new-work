@@ -7,7 +7,15 @@ h1,h2,h3,h4,h5,h6 {
   margin-top: 10px;
   }
 
-
+  td.day-box,
+  th.day-header {
+  padding: 4px !important;
+  vertical-align: middle !important;
+  text-align: center;
+  }
+  #ajax-progress-indicator {
+    display: none;
+   }
  /* Footer Styles */
 #footer {
   border-top: 1px solid #dddddd;
@@ -33,7 +41,9 @@ max-width: 300px;
   line-height: 30px;
   color: #555555;
   }
-
+#load tr{
+  display: none;
+}
   #loadMore {
     color:green;
     cursor:pointer;

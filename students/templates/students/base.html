@@ -40,9 +40,11 @@ href="{{ PORTAL_URL}}{% static "css/main 2.css" %}">
 <div class="col-xs-4" id="group-selector">
   <strong>Група:</strong>
   <select>
-    <option value="">Усі студенти</option>
-    <option value="">МтМ - 32 Подоба Віталій (№ 254)</option>
-    <option value="">Мтм - 21, Корост Андрій (№4245)</option>
+    <option value="">Усі Студенти</option>
+    {% for group in GROUPS %}
+    <option value="{{ group.id }}"{% if group.selected %}selected="1"{% endif %}>
+      {{ group.title }}{% if group.leader %}, {{ group.leader }}{% endif %}</option>
+    {% endfor %}
   </select>
 </div>
 </div>
@@ -89,7 +91,8 @@ href="{{ PORTAL_URL}}{% static "css/main 2.css" %}">
 </div>
 <!-- End Container -->
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ <script src="{% static "js/jquery.cookie.js" %}"></script>
  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
  <script  type="text/javascript" src="{% static "js/main.js" %}"></script>

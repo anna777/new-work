@@ -3,25 +3,27 @@ from django.views.generic import UpdateView, DeleteView
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
-from ..models import Student, Group
 from datetime import datetime
 from django.contrib import messages
 from django.utils.translation import ugettext as _
 
+from ..util import paginate, get_current_group
+from ..models import Student, Group
 
 # Create your views here.
 def students_list(request):
-    students = Student.objects.all()
-    # try to order students list
-    order_by = request.GET.get('order_by', '')
-    if order_by in ('last_name', 'first_name', 'ticket'):
-      students = students.order_by(order_by)
-      if request.GET.get('reverse', '') == '1':
-        students = students.reverse()
-
-
-
+    current_group = get_current_group(request)
+    if current_group:
+        students = Student.objects.filter(student_group=current_group)
+    else:
+        # otherwise show all students
+        students = Student.objects.all()
+        # try to order students list
+        order_by = request.GET.get('order_by', '')
+        if order_by in ('last_name', 'first_name', 'ticket'):
+            students = students.order_by(order_by)
+            if request.GET.get('reverse', '') == '1':
+                students = students.reverse()
     return render(request, 'students/students_list.html',
 {'students': students})
 

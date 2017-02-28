@@ -20,6 +20,7 @@ from .settings import MEDIA_ROOT, DEBUG
 from students.models.students import Student
 from students.views.students import StudentUpdateView, StudentDeleteView
 from students.views.groups import GroupUpdateView, GroupDeleteView
+from students.views.journal import JournalView
 
 urlpatterns = patterns ('',
     # Students urls
@@ -34,7 +35,7 @@ name='students_edit'),
     name='students_delete'),
     #journal
 
-    url(r'^journal/$', 'students.views.journal.journal', name='journal'),
+    url(r'^journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),
 
     # Groups urls
     url(r'^groups/$', 'students.views.groups.groups_list', name='groups'),

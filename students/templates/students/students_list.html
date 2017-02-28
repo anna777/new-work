@@ -63,8 +63,7 @@ type="button" data-toggle="dropdown">Дія
 </button>
 <ul class="dropdown-menu" role="menu">
 <li role="presentation">
-<a role="menuitem" tabindex="-1"
-href="/journal/{{student.id}}">Відвідування</a>
+<a role="menuitem" tabindex="-1" href="{% url "journal" student.id %}">Відвідування</a>
 </li>
 <li role="presentation">
 <a role="menuitem" tabindex="-1" href="{% url "students_edit" student.id %}">Редагувати</a>
@@ -76,21 +75,25 @@ href="/journal/{{student.id}}">Відвідування</a>
 </div>
 </td>
 </tr>
+
 {%endfor%}
+
 
 
 </tbody>
 </table>
 <!-- End Students Listing -->
-
+{%if students|length > 5 %}
+<div id="loadMore">Load more</div>
+<div id="showLess">Show less</div>
+{%endif%}
     </div>
 </div>
 </div>
 
 
 
-<div id="loadMore">Load more</div>
-<div id="showLess">Show less</div>
+
 {% endblock content %}
 
 
