@@ -1,0 +1,118 @@
+ERROR 2017-03-03 14:00:09,180 contact_admin: Під час відправки листа виникла непередбачувана помилка. Спробуйте скористатись даною формою пізніше.
+Traceback (most recent call last):
+  File "/home/anna/new-work/students/views/contact_admin.py", line 61, in contact_admin
+    send_mail(subject, message, from_email, [ADMIN_EMAIL])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (530, '5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError b75sm2260177lfh.36 - gsmtp', u'tarasprystayko77@gmail.com')
+ERROR 2017-03-03 14:02:26,010 contact_admin: Під час відправки листа виникла непередбачувана помилка. Спробуйте скористатись даною формою пізніше.
+Traceback (most recent call last):
+  File "/home/anna/new-work/students/views/contact_admin.py", line 61, in contact_admin
+    send_mail(subject, message, from_email, [ADMIN_EMAIL])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (530, '5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError b18sm2204658lje.13 - gsmtp', u'tarasprystayko77@gmail.com')
+ERROR 2017-03-03 14:03:35,548 contact_admin: Під час відправки листа виникла непередбачувана помилка. Спробуйте скористатись даною формою пізніше.
+Traceback (most recent call last):
+  File "/home/anna/new-work/students/views/contact_admin.py", line 61, in contact_admin
+    send_mail(subject, message, from_email, [ADMIN_EMAIL])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (530, '5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError g26sm2264191lfh.46 - gsmtp', u'annapasichnyk77@gmail.com')
+ERROR 2017-03-03 14:14:58,263 contact_admin: Під час відправки листа виникла непередбачувана помилка. Спробуйте скористатись даною формою пізніше.
+Traceback (most recent call last):
+  File "/home/anna/new-work/students/views/contact_admin.py", line 61, in contact_admin
+    send_mail(subject, message, from_email, [ADMIN_EMAIL])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (530, '5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError m27sm2199632ljb.24 - gsmtp', u'tarasprystayko77@gmail.com')
+ERROR 2017-03-03 14:19:30,705 contact_admin: Під час відправки листа виникла непередбачувана помилка. Спробуйте скористатись даною формою пізніше.
+Traceback (most recent call last):
+  File "/home/anna/new-work/students/views/contact_admin.py", line 61, in contact_admin
+    send_mail(subject, message, from_email, [ADMIN_EMAIL])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (530, '5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError c28sm2294707lfh.49 - gsmtp', u'tarasprystayko77@gmail.com')
+ERROR 2017-03-03 14:19:57,780 contact_admin: Під час відправки листа виникла непередбачувана помилка. Спробуйте скористатись даною формою пізніше.
+Traceback (most recent call last):
+  File "/home/anna/new-work/students/views/contact_admin.py", line 61, in contact_admin
+    send_mail(subject, message, from_email, [ADMIN_EMAIL])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (530, '5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError f28sm2192576lfi.52 - gsmtp', u'annapasichnyk77@gmail.com')
+ERROR 2017-03-03 14:39:42,654 contact_admin: Під час відправки листа виникла непередбачувана помилка. Спробуйте скористатись даною формою пізніше.
+Traceback (most recent call last):
+  File "/home/anna/new-work/students/views/contact_admin.py", line 61, in contact_admin
+    send_mail(subject, message, from_email, [ADMIN_EMAIL])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/__init__.py", line 56, in send_mail
+    fail_silently=fail_silently)
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/__init__.py", line 37, in get_connection
+    klass = import_string(backend or settings.EMAIL_BACKEND)
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/utils/module_loading.py", line 26, in import_string
+    module = import_module(module_path)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named django_smtp_ssl
+ERROR 2017-03-03 14:41:11,314 contact_admin: Під час відправки листа виникла непередбачувана помилка. Спробуйте скористатись даною формою пізніше.
+Traceback (most recent call last):
+  File "/home/anna/new-work/students/views/contact_admin.py", line 61, in contact_admin
+    send_mail(subject, message, from_email, [ADMIN_EMAIL])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/__init__.py", line 62, in send_mail
+    return mail.send()
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 99, in send_messages
+    sent = self._send(message)
+  File "/home/anna/new-work/env/local/lib/python2.7/site-packages/django/core/mail/backends/smtp.py", line 115, in _send
+    self.connection.sendmail(from_email, recipients, message.as_bytes(linesep='\r\n'))
+  File "/usr/lib/python2.7/smtplib.py", line 736, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+SMTPSenderRefused: (530, '5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError 1sm2274983ljo.43 - gsmtp', u'tarasprystayko77@gmail.com')

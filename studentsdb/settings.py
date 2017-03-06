@@ -16,11 +16,15 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # email settings
 # please, set here you smtp server details and your admin email
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 ADMIN_EMAIL ='annapasichnyk77@gmail.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'annapasichnyk77@gmail'
-HOST_PASSWORD = '**********'
+EMAIL_HOST_USER = 'annapasichnyk77@gmail.com'
+HOST_PASSWORD = 'danceforlife77'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
@@ -29,15 +33,17 @@ EMAIL_USE_SSL = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'manin@%*of)orvk!t_^9_#&snqxvhyh9i&4dnfiz_jv4w0(o-6'
-
+INCLUDE_AUTH_URLS = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
+LOGIN_URL = 'users:auth_login'
+LOGOUT_URL = 'users:auth_logout'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
+REGISTRATION_OPEN = True
 # Application definition
 
 INSTALLED_APPS = (
@@ -49,7 +55,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'students',
     'studentsdb',
-    'crispy_forms'
+    'crispy_forms',
+    'registration',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -97,13 +105,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+default_app_config = 'students.apps.StudentsAppConfig'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+TEMPLATE_DIRS = (
+ os.path.join(BASE_DIR, 'studentsdb' 'templates'),
+  )
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
@@ -111,6 +121,60 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 TEMPLATE_CONTEXT_PROCESSORS = \
     global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     "django.core.context_processors.request",
+    "social.apps.django_app.context_processors.backends",
+    "social.apps.django_app.context_processors.login_redirect",
     "studentsdb.context_processors.students_proc",
     "students.context_processors.groups_processor",
 )
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+SOCIAL_AUTH_FACEBOOK_KEY = '1375738069131620'
+SOCIAL_AUTH_FACEBOOK_SECRET = '932d12638e8292128e4076c6fea000e4'
+LOG_FILE = os.path.join(BASE_DIR, 'studentsdb.log')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s: %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s: %(message)s'
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': LOG_FILE,
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['null'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'students.signals': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        },
+        'students.views.contact_admin': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        }
+    }
+}

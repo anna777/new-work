@@ -4,7 +4,8 @@ from django import forms
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-
+import logging
+from django.contrib.auth.decorators import permission_required
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
@@ -44,6 +45,7 @@ class ContactForm(forms.Form):
         label=u"Текст повідомлення",
         widget=forms.Textarea)
 
+@permission_required('auth.add_user')
 def contact_admin(request):
     # check if form was posted
     if request.method == 'POST':
@@ -62,6 +64,8 @@ def contact_admin(request):
             except Exception:
                 message = u'Під час відправки листа виникла непередбачувана ' \
                     u'помилка. Спробуйте скористатись даною формою пізніше.'
+                logger = logging.getLogger(__name__)
+                logger.exception(message)
             else:
                 message = u'Повідомлення успішно надіслане!'
 

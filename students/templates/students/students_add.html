@@ -4,7 +4,7 @@
 {% block meta_title %}Студенти{% endblock meta_title %}
 {% block title %}База Студентів{% endblock title %}
 {% block content %}
-
+<!--
 {% block status_message %}
 {% if errors %}
 <div class="alert alert-warning" role="alert">
@@ -46,9 +46,8 @@ class="form-control" />
 <div class="form-group {% if errors.birthday %}has-error{% endif %}">
 <label for="birthday"class="col-sm-2 control-label">Дата Народження*</label>
 <div class="col-sm-10">
-<input type="text" value="{{ request.POST.birthday }}"
+<input class="dateinput form-control" type="text" value="{{ request.POST.birthday }}"
 name="birthday" id="birthday"
-placeholder="Напр. 1984-12-30"
 class="form-control" />
 <span class="help-block">{{ errors.birthday }}</span>
 </div>
@@ -99,5 +98,7 @@ class="btn btn-primary" />
 class="btn btn-link">Скасувати</button>
 </div>
 </div>
-</form>
+</form> -->
+{% load crispy_forms_tags %}
+{% crispy form %}
 {% endblock%}

@@ -41,6 +41,11 @@ max-width: 300px;
   line-height: 30px;
   color: #555555;
   }
+  /* User’s Toolbar */
+#user-toolbar {
+  margin-top: 30px;
+  text-align: right;
+}
 #load tr{
   display: none;
 }

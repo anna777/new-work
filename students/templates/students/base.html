@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static from staticfiles %}
 
 
@@ -6,19 +7,19 @@
 
    <head>
      <meta charset="UTF-8"/>
-     <title> Сервіс обліку студентів - {% block meta_title %}{% endblock meta_title %}</title>
+     <title>{% trans "Students Accounting Service" %} - {% block meta_title %}{% endblock meta_title %}</title>
      <meta name="description"
            value="Система облуку студентів навчального закладу"/>
 
      <meta name="viewport"
            content="width=device-width, initial-scale=1">
 
-           <link rel="stylesheet"
+    <link rel="stylesheet"
         		  href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
-            <link rel="stylesheet"
-                  href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/css/bootstrap-datetimepicker.min.css"/>
- <link  rel="stylesheet"
-href="{{ PORTAL_URL}}{% static "css/main 2.css" %}">
+    <link rel="stylesheet"
+              href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/css/bootstrap-datetimepicker.min.css"/>
+        <link  rel="stylesheet"
+                  href="{{ PORTAL_URL}}{% static "css/main 2.css" %}">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
@@ -30,35 +31,62 @@ href="{{ PORTAL_URL}}{% static "css/main 2.css" %}">
    <body>
    <!-- Start Container -->
 <div class="container">
-<!-- Start Header -->
-<div class="row" id="header">
-<!-- Logo -->
-<div class="col-xs-8">
-<h1>Сервіс Обліку Студентів</h1>
-</div>
-<!-- Groups Selector -->
-<div class="col-xs-4" id="group-selector">
-  <strong>Група:</strong>
-  <select>
-    <option value="">Усі Студенти</option>
-    {% for group in GROUPS %}
-    <option value="{{ group.id }}"{% if group.selected %}selected="1"{% endif %}>
-      {{ group.title }}{% if group.leader %}, {{ group.leader }}{% endif %}</option>
-    {% endfor %}
-  </select>
-</div>
-</div>
-<!-- End Header -->
+  <!-- Start Header -->
+      <div class="row" id="header">
+        <div class="col-xs-6">
+          <h1>{% trans "Сервіс Обліку Студентів" %}</h1>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="col-xs-4" id="group-selector">
+          <strong>{% trans "Group" %}:</strong>
+          <select>
+            <option value="">{% trans "Усі Студенти" %}</option>
+            {% for group in GROUPS %}
+            <option value="{{ group.id }}"{% if group.selected %}selected="1"{% endif %}>{{ group.title }}{% if group.leader %}, {{ group.leader }}{% endif %}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- User's toolbar for authenticated users -->
+        <div class="col-xs-2" id="user-toolbar">
+          <a href={% url "profile" %}>{{ user.get_full_name|default:user.username }}</a> |
+          <a href="{% url "users:auth_logout" %}">{% trans "Logout" %}</a>
+        </div>
+
+        {% else %}
+
+        <!-- User’s toolbar for anonymous users -->
+        <div class='col-xs-6' id='user-toolbar'>
+          <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+            {% trans "via Facebook" %}</a> |
+          <a href="{% url "users:auth_login" %}">{% trans "Login" %}</a> |
+          <a href="{% url "users:registration_register" %}">{% trans "Register" %}</a>
+        </div>
+
+        {% endif %}
+
+      </div>
+      <!-- End Header -->
+
 <!-- Start SubHeader -->
 <div class="row" id="sub-header">
 <div class="col-xs-12">
    <ul class="nav nav-tabs" role="tablist">
      <li role="presentation" {% if request.path == '/'%}class="active"{% endif %}><a href="{% url "home" %}">Студенти</a></li>
-     <li role="presentation"{% if '/journal' in request.path %} class="active"{% endif %}><a href="{% url "journal" %}">Відвідування</a></li>
-     <li role="presentation"{% if '/groups' in request.path%} class="active"{% endif %}><a href="{% url "groups" %}">Групи</a></li>
-     <li role="presentation" {% if '/exams' in request.path%} class="active"{% endif %}><a href="{% url "exams" %}">Іспит</a></li>
-     <li role="presentation" {% if '/contact-admin' in request.path%} class="active"{% endif %}><a href="{% url "contact_admin" %}">Контакт</a></li>
+     {% if user.is_authenticated %}
+     <li role="presentation"{% if '/journal' in request.path %} class="active"{% endif %}>
+       <a href="{% url "journal" %}"{% trans "Journal" %}>Відвідування</a></li>
 
+     <li role="presentation"{% if '/groups' in request.path%} class="active"{% endif %}>
+       <a href="{% url "groups" %}" {% trans "Groups" %}>Групи</a></li>
+{% endif %}
+       {% if perms.auth.add_user %}
+     <li role="presentation" {% if '/exams' in request.path%} class="active"{% endif %}>
+       <a href="{% url "exams" %}" {% trans "Exams" %}>Іспит</a></li>
+     <li role="presentation" {% if '/contact-admin' in request.path%} class="active"{% endif %}>
+       <a href="{% url "contact_admin" %}" {% trans "Contact" %}>Контакт</a></li>
+     {% endif%}
    </ul>
 </div>
 </div>
@@ -90,15 +118,29 @@ href="{{ PORTAL_URL}}{% static "css/main 2.css" %}">
 <!-- End Footer -->
 </div>
 <!-- End Container -->
+<!-- Modal Boilerplate -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><!-- --></h4>
+      </div>
+      <div class="modal-body"><!-- --></div>
+      <div class="modal-footer"><!-- --></div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
- <script src="{% static "js/jquery.cookie.js" %}"></script>
+
  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
- <script  type="text/javascript" src="{% static "js/main.js" %}"></script>
+ <script src="{% static "js/jquery.cookie.js" %}"></script>
  <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
  <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/js/bootstrap-datetimepicker.min.js"></script>
-
+ <script  type="text/javascript" src="{% static "js/main.js" %}"></script>
      {% block extra_js %}{% endblock extra_js %}
    </body>
 

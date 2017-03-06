@@ -29,12 +29,22 @@
 {% elif order_by == 'last_name' and reverse == '1' %}&darr;
 {% endif %}
 </a></th>
+<th><a href="{% url "home" %}?order_by=title{% if order_by == 'title' and reverse != '1' %}&amp;reverse=1
+  {% endif %}"> Група
+  {% if order_by == 'title' and reverse != '1' %}&uarr;
+{% elif order_by == 'title' and reverse == '1' %}&darr;
+{% endif %}
+</a></th>
+
        <th><a href="{% url "home" %}?order_by=ticket{% if order_by == 'ticket' and reverse != '1' %}&amp;reverse=1{% endif %}">№ білету
  {% if order_by == 'ticket' and reverse != '1' %}&uarr;
 {% elif order_by == 'ticket' and reverse == '1' %}&darr;
 {% endif %}
  </a></th>
-        <th>Дії</th>
+
+ {% if user.is_authenticated %}
+      <th>Дії</th>
+      {%endif%}
        </tr>
      </thead>
      <tbody id='load'>
@@ -50,12 +60,15 @@ ht="30" width="30" />
 height="30" width="30" />
 {% endif %}
 </td>
-        <td><a title="Редагувати" href="{% url "students_edit" student.id %}">{{student.last_name}}</a></td>
-        <td><a title="Редагувати" href="{% url "students_edit" student.id %}">{{student.first_name}}</a></td>
-        <td><a title="Редагувати" href="{% url "students_edit" student.id %}">{{student.student_group}}</a></td>
-
+        <td><a title="Редагувати" href=#{% if user.is_authenticated %}"{% url "students_edit" student.id %}"
+          class="student-edit-form-link"{%endif%}>{{student.last_name}}</a></td>
+        <td><a title="Редагувати" href=#{% if user.is_authenticated %}"{% url "students_edit" student.id %}" 
+          class="student-edit-form-link"{%endif%}>{{student.first_name}}</a></td>
+        <td><a title="Редагувати" href=#{% if user.is_authenticated %}"{% url "students_edit" student.id %}"
+          class="student-edit-form-link"{%endif%}>{{student.student_group}}</a></td>
         <td>{{student.ticket}}</td>
-        <td>
+{% if user.is_authenticated %}
+    <td>
 <div class="dropdown">
 <button class="btn btn-default dropdown-toggle"
 type="button" data-toggle="dropdown">Дія
@@ -66,7 +79,7 @@ type="button" data-toggle="dropdown">Дія
 <a role="menuitem" tabindex="-1" href="{% url "journal" student.id %}">Відвідування</a>
 </li>
 <li role="presentation">
-<a role="menuitem" tabindex="-1" href="{% url "students_edit" student.id %}">Редагувати</a>
+<a role="menuitem" tabindex="-1" href="{% url "students_edit" student.id %}" class="student-edit-form-link">Редагувати</a>
 </li>
 <li role="presentation">
 <a role="menuitem" tabindex="-1" href="{% url "students_delete" student.id %}">Видалити</a>
@@ -74,6 +87,7 @@ type="button" data-toggle="dropdown">Дія
 </ul>
 </div>
 </td>
+{% endif %}
 </tr>
 
 {%endfor%}
