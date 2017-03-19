@@ -61,6 +61,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    #'studentsdb.middleware.RequestTimeMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -86,9 +87,13 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.mysql',
         'HOST':'localhost',
-        'USER': 'students_user',
-        'PASSWORD':'inmymemory123',
-        'NAME': 'students_db'
+        'USER': 'root',#'students_user',
+        'PASSWORD':'inmymemory',#'inmymemory123',
+        'NAME': 'students_db',
+        'TEST': {
+         'CHARSET': 'utf8',
+         'COLLATION': 'utf8_general_ci'
+         }
     }
 }
 

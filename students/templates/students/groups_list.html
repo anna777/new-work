@@ -1,4 +1,7 @@
 {% extends "students/base.html" %}
+{% load i18n %}
+{% load static from staticfiles %}
+{% load pagenav %}
 
 {% block meta_title %}Список Груп{% endblock meta_title %}
 
@@ -46,8 +49,6 @@
 <p>Поки немає груп у базі.</p>
 {% endif %}
 
-{% with object_list=groups %}
-  {% include "students/pagination.html" %}
-{% endwith %}
+{% pagenav object_list=groups is_paginated=is_paginated paginator=paginator %}
 
 {% endblock content %}

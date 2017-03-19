@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.core.exceptions import ValidationError
+
+def validate_image(photo):
+    filesize = photo.file.size
+    megabyte_limit = 2.0
+    if filesize > megabyte_limit*1024*1024:
+        raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
 
 
 class Student(models.Model):
@@ -38,6 +45,7 @@ class Student(models.Model):
 
     photo = models.ImageField(
         blank=True,
+        validators=[validate_image],
         verbose_name=u"Фото",
         null=True)
 
@@ -52,6 +60,3 @@ class Student(models.Model):
 
     def __unicode__(self):
         return u"%s %s" % (self.first_name, self.last_name)
-        
-        
-
