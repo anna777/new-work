@@ -10,7 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 from django.conf import global_settings
+from .local import AUTH_FACEBOOK_KEY, AUTH_FACEBOOK_SECRET
+from .env_settings import SECRET_KEY, DEBUG, TEMPLATE_DEBUG, ALLOWED_HOSTS
+from .env_settings import DATABASES, STATIC_URL, MEDIA_URL, MEDIA_ROOT
 
+
+# in dev envrironment we may not have STATIC_ROOT defined
+try:
+    from .env_settings import STATIC_ROOT
+except ImportError:
+    pass
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,11 +29,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-ADMIN_EMAIL ='annapasichnyk77@gmail.com'
+ADMIN_EMAIL ='*******'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'annapasichnyk77@gmail.com'
-HOST_PASSWORD = 'danceforlife77'
+EMAIL_HOST_USER = '********'
+HOST_PASSWORD = '********'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
@@ -32,14 +41,10 @@ EMAIL_USE_SSL = True
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'manin@%*of)orvk!t_^9_#&snqxvhyh9i&4dnfiz_jv4w0(o-6'
 INCLUDE_AUTH_URLS = True
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
 LOGIN_URL = 'users:auth_login'
 LOGOUT_URL = 'users:auth_logout'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
@@ -73,29 +78,27 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'studentsdb.urls'
 
-
-
 WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-
-DATABASES = {
-    'default': {
-
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST':'localhost',
-        'USER': 'root',#'students_user',
-        'PASSWORD':'inmymemory',#'inmymemory123',
-        'NAME': 'students_db',
-        'TEST': {
-         'CHARSET': 'utf8',
-         'COLLATION': 'utf8_general_ci'
-         }
-    }
-}
+#
+#
+# DATABASES = {
+#     'default': {
+#
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST':'localhost',
+#         'USER': DB_USER,
+#         'PASSWORD':DB_PASSWORD,
+#         'NAME': 'students_db',
+#         'TEST': {
+#          'CHARSET': 'utf8',
+#          'COLLATION': 'utf8_general_ci'
+#          }
+#     }
+# }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -130,13 +133,15 @@ TEMPLATE_CONTEXT_PROCESSORS = \
     "social.apps.django_app.context_processors.login_redirect",
     "studentsdb.context_processors.students_proc",
     "students.context_processors.groups_processor",
+    "django.contrib.messages.context_processors.messages"
+
 )
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
-SOCIAL_AUTH_FACEBOOK_KEY = '1375738069131620'
-SOCIAL_AUTH_FACEBOOK_SECRET = '932d12638e8292128e4076c6fea000e4'
+SOCIAL_AUTH_FACEBOOK_KEY = AUTH_FACEBOOK_KEY
+SOCIAL_AUTH_FACEBOOK_SECRET = AUTH_FACEBOOK_SECRET
 LOG_FILE = os.path.join(BASE_DIR, 'studentsdb.log')
 
 LOGGING = {
